@@ -1,7 +1,7 @@
 import allure
-import time
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
+from urls import URLS
 
 
 class DzenPage(BasePage):
@@ -13,6 +13,6 @@ class DzenPage(BasePage):
 
     @allure.step('Проверка открытия страницы "Дзен"')
     def check_go_to_dzen(self):
-        time.sleep(2)
+        self.wait_for_visibility_of_element(self.dzen_logo_in_header)
         current_url = self.get_current_url()
-        assert current_url == "https://dzen.ru/?yredirect=true&is_autologin_ya=true"
+        assert current_url == URLS.DZEN_URL

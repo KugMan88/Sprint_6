@@ -1,6 +1,7 @@
 import allure
 from locators.main_page_locators import MainPageLocators
 from pages.base_page import BasePage
+from urls import URLS
 
 
 class MainPage(BasePage):
@@ -14,7 +15,7 @@ class MainPage(BasePage):
     @allure.step('Проверка открытия страницы "Яндекс Самокат"')
     def check_go_to_home_page(self):
         current_url = self.get_current_url()
-        assert current_url == "https://qa-scooter.praktikum-services.ru/"
+        assert current_url == URLS.BASE_URL
 
     @allure.step('Клик на логотип "Яндекс"')
     def click_yandex_logo(self):
